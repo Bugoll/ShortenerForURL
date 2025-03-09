@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block nav_items %}
+<!-- No navigation items for the register page -->
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        <form method="POST" action="{{ url_for('register_page') }}" class="mx-auto mt-4" style="max-width: 400px;">
+            {{ form.hidden_tag() }}
+
+            <img class="mb-4" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+            
+            <div class "text-center mb-4">
+                <h1 class="mb-1 font-weight-normal">Welcome!</h1>
+                <span>Register and take all advantages!</span>
+            </div>
+            <div class="separator text-center">
+                <hr>
+                <span class="separator-line"></span>
+            <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        {{ form.username(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        <label for="password1" class="form-label">Password</label>
+        {{ form.password1(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        <label for="password2" class="form-label">Confirm password</label>
+        {{ form.password2(class="form-control") }}
+    </div>
+
+
+
+            <hr>
+            <div class="text-center text-small text-muted">
+                        <span>
+                            Already registered?
+                            <a href ={{ url_for('login') }}">Sign In</a>
+                        </span>
+            </div>
+
+        </form>
+    </div>
+</body>
+{% endblock %}
