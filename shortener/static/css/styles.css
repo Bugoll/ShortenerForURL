@@ -1,0 +1,25 @@
+.form-control::placeholder {
+    color: #ccc; /* Light grey color for better visibility on dark background */
+}
+
+.form-control {
+    background-color: #333; /* Dark background for input field */
+    color: white; /* White text color for input field */
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}

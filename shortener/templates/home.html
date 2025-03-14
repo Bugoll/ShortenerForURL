@@ -4,5 +4,21 @@
 {% endblock %}
 
 {% block content %}
-    This is our content for the Home Page
+<div class="container">
+    <h1 class="text-center mt-4">ShortURL</h1>
+    <p class="text-center">Paste your long URL below to shorten it</p>
+    <div class="d-flex justify-content-center mt-4">
+        <div class="w-50"> <!-- Ограничение ширины формы -->
+            <form method="POST" action="{{ url_for('home_page') }}" class="d-flex align-items-center">
+                {{ form.hidden_tag() }}
+                <div class="form-group flex-grow-1 mb-0">
+                    {{ form.destination_link(class_="form-control form-control-lg", style="height: 50px;") }}
+                </div>
+                <div class="form-group mb-0 ml-2">
+                    {{ form.submit(class_="btn btn-success btn-lg", style="height: 50px;") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

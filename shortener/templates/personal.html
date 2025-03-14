@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Personal Page
+{% endblock %}
+
+{% block content %}
+    My links
+    <div class="container">
+        <table class="table table-dark table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Original URL</th>
+                    <th scope="col">Short URL</th>
+                    <th scope="col">Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for link in links %}
+                    <tr>
+                        <td>{{ link.destination_link }}</td>
+                        <td><a href="{{ url_for('redirect', short_url=link.short_link) }}">{{ url_for('redirect', short_url=link.short_link) }}</a></td>
+                        <td>{{ link.clicks }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
