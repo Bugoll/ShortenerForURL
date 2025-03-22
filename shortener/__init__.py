@@ -1,19 +1,21 @@
-from flask import Flask, g
-import secrets, os, sqlite3
-from dotenv import load_dotenv
-
-load_dotenv()
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
+from flask_migrate import Migrate
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shortener.sqlite'
+app.config['SECRET_KEY'] = 'some-secret-key'
 
-app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(32))
-DATABASE = r'Shortener\shortener.sqlite'
+db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
+login_manager.login_view = 'login_page'
+login_manager.login_message_category = 'info'
 
-def db():
-    if not hasattr(g, 'db'):
-        g.db = sqlite3.connect(DATABASE)
-        g.db.row_factory = sqlite3.Row
-    return g.db
 
-from shortener import routes
-from shortener import forms
+from shortener import models, routes
+
+migrate = Migrate(app, db)
+

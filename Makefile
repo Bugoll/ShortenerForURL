@@ -5,6 +5,7 @@ VENV = venv
 
 # Основной Python-скрипт для запуска
 MAIN = main.py
+INIT = init_db.py
 
 # Пути к файлам зависимостей
 REQUIREMENTS_DIR = requirements
@@ -46,13 +47,9 @@ lint:
 clean:
 	$(RM)
 
-# Цель init - Создание базы данных
+# Цель: init-db - Инициализация базы данных
 init:
-ifeq ($(OS),Windows_NT)
-	type shortener\init.sql | sqlite3 shortener\shortener.sqlite
-else
-	cat shortener/init.sql | sqlite3 shortener/shortener.sqlite
-endif
+	$(ACTIVATE) && $(PYTHON) $(INIT)
 
 # Цель clean-bd - Удаление базы данных
 clean-bd:
