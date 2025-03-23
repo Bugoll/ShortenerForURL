@@ -168,3 +168,14 @@ cython_debug/
 #.idea/
 
 # Extensions
+
+
+# SQLite database
+instance/*.sqlite
+
+# Alembic cache files
+migrations/versions/__pycache__/
+
+# IDE-specific files
+.vscode/
+.idea/
