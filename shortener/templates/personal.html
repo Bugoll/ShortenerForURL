@@ -30,7 +30,7 @@
                     {{ personal_form.submit(class_="btn btn-success btn-lg", style="height: 50px;") }}
                 </div>
             </form>
-<p>Debug: short_link = {{ short_link }}</p>
+
             <!-- Отображение сокращённой ссылки и QR-кода -->
             {% if short_link %}
             <div class="mt-3">
@@ -61,4 +61,34 @@
         </div>
     </div>
 </div>
+
+
+<hr class="mt-5">
+<h3 class="text-center mt-4">Your Link History (Last 5)</h3>
+
+<div class="d-flex justify-content-center mt-3 mb-5">
+    <div class="w-75">
+        {% if items %}
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Original URL</th>
+                        <th>Shortened URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for link in items %}
+                    <tr>
+                        <td style="word-break: break-all; color: white;">{{ link.original_url }}</td>
+                        <td><a href="{{ request.host_url }}{{ link.short_url }}" target="_blank">{{ request.host_url }}{{ link.short_url }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No links yet.</p>
+        {% endif %}
+    </div>
+</div>
+
 {% endblock %}
