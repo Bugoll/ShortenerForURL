@@ -30,6 +30,10 @@ setup:
 # Цель: setup-dev - Установка зависимостей для разработки
 setup-dev:
 	$(ACTIVATE) && pip install -r $(DEV_REQUIREMENTS)
+
+# Цель: db-init - Инициализация базы данных
+db-init:
+	$(ACTIVATE) && export FLASK_APP=main.py && flask db init
     
 dev:
 	$(ACTIVATE) && $(PYTHON) $(MAIN) --debug
