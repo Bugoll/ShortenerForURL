@@ -5,7 +5,6 @@ VENV = venv
 
 # Основной Python-скрипт для запуска
 MAIN = main.py
-INIT = init_db.py
 
 # Пути к файлам зависимостей
 REQUIREMENTS_DIR = requirements
@@ -47,9 +46,6 @@ lint:
 clean:
 	$(RM)
 
-# Цель: init-db - Инициализация базы данных
-init:
-	$(ACTIVATE) && $(PYTHON) $(INIT)
 
 # Цель clean-bd - Удаление базы данных
 clean-bd:

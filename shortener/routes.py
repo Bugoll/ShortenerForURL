@@ -97,6 +97,7 @@ def personal_page():
     form = PersonalShortenLinkForm()
     short_link, qr_code_path = None, None
 
+
     # Получаем 5 последних ссылок
     links = Link.query.filter_by(user_id=current_user.id).order_by(Link.id.desc()).limit(5).all()
 

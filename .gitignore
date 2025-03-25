@@ -178,4 +178,6 @@ migrations/versions/__pycache__/
 
 # IDE-specific files
 .vscode/
-.idea/
+
+# Local folders
+shortener/static/qrcodes/
