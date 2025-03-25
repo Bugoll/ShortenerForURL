@@ -180,4 +180,4 @@ migrations/versions/__pycache__/
 .vscode/
 
 # Local folders
-shortener/static/qrcodes/
+shortener/static/qr_codes/
