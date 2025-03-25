@@ -36,6 +36,8 @@ Create the Database:
 
 1. Initialize the database migrations folder (if not already initialized):
 
+        
+        $export FLASK_APP=main.py
         $flask db init
 
 2. Generate the migration script for the database schema:
