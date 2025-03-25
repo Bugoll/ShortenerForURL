@@ -34,19 +34,10 @@ Install the required dependencies for development:
 
 Create the Database:
 
-1. Initialize the database migrations folder (if not already initialized):
+1. Initialize the database migrations folder. Generate the migration script for the database schema. Apply the migration to create the database
 
         
-        $export FLASK_APP=main.py
-        $flask db init
-
-2. Generate the migration script for the database schema:
-
-        $flask db migrate -m "Initial migration"
-
-3. Apply the migration to create the database:
-
-        $flask db upgrade
+        $make db-init
 
 This will create the shortener.sqlite database in the instance folder.
 

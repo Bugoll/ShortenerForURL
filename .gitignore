@@ -174,7 +174,7 @@ cython_debug/
 instance/*.sqlite
 
 # Alembic cache files
-migrations/versions/__pycache__/
+migrations/
 
 # IDE-specific files
 .vscode/
